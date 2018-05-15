@@ -41,7 +41,7 @@ Kicker tong:
 
 protect = {
     "kick":{},
-    "msgkick": false
+    "msgkick": False
 }
 cctv = {
     "cyduk":{},
