@@ -28,6 +28,7 @@ Check:on <- Check reader
 Check:off <- Stop check reader
 Reboot <- Restart bot
 Broadcast [text] <- BC All Group!
+Creator <- For look creator!
 
 Protect tong:
 Protectkick:[on/off] <- Protect from kicker
@@ -206,6 +207,9 @@ while True:
                                 sx = client.getGroupIdsJoined()
                                 for ak in sx:
                                     client.sendText(receiver, '[ B R O A D C A S T ]\n' + ak)
+                            elif text.lower() == 'creator':
+                                client.tag(receiver, "uebcbec2df1e585a2bc487d71de2b26fb")
+                                client.sendMessage(receiver, None, contentMetadata={'mid': "uebcbec2df1e585a2bc487d71de2b26fb"}, contentType=13)
                 except Exception as e:
                     client.log("[SEND_MESSAGE] ERROR : " + str(e))
             elif op.type == 55:
