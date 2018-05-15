@@ -87,6 +87,7 @@ while True:
                             for target in targets:
                                 if target not in renBot:
                                     client.kickoutFromGroup(receiver, [target])
+                            protect["msgkick"] = False
                     if msg.contentType == 0:
                         if msg.toType in [0,2]:
                             if text.lower() == 'help':
