@@ -94,7 +94,7 @@ while True:
                                 client.sendText(receiver, vol)
                             elif text.lower() == 'me':
                                 client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-                            elif text.lower() == ['speed','sp']:
+                            elif text.lower() in ['speed','sp']:
                                 start = time.time()
                                 client.sendText(receiver, "Load data response...")
                                 elapsed_time = time.time() - start
