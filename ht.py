@@ -78,16 +78,20 @@ while True:
                 msg.from_ = msg._from
                 try:
                     if msg.contentType == 0:
-                        if protect["msgkick"] == True:
-                            targets = []
-                            key = eval(msg.contentMetadata["MENTION"])
-                            key["MENTIONEES"][0]["M"]
-                            for x in key["MENTIONEES"]:
-                                targets.append(x["M"])
-                            for target in targets:
-                                if target not in renBot:
-                                    client.kickoutFromGroup(receiver, [target])
+                        try:
+                            if protect["msgkick"] == True:
+                                targets = []
+                                key = eval(msg.contentMetadata["MENTION"])
+                                key["MENTIONEES"][0]["M"]
+                                for x in key["MENTIONEES"]:
+                                    targets.append(x["M"])
+                                for target in targets:
+                                    if target not in renBot:
+                                        client.kickoutFromGroup(receiver, [target])
+                                protect["msgkick"] = False
+                        except:
                             protect["msgkick"] = False
+                            client.sendText(receiver, 'Kick via mention has aborted!')
                     if msg.contentType == 0:
                         if msg.toType in [0,2]:
                             if text.lower() == 'help':
