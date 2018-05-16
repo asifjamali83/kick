@@ -175,8 +175,9 @@ while True:
                             elif text.lower() == 'reboot':
                                 restart_program()
                             elif text.lower().startswith("!boom"):
-                                protect["msgkick"] = True
                                 client.sendText(receiver, "Silahkan tag orangnya bre... Bebas mau berapa aja!")
+                                time.sleep(0.1)
+                                protect["msgkick"] = True
                             elif text.lower().startswith("protectkick"):
                                 pset = text.split(":")
                                 pk = text.replace(pset[0] + ":","")
