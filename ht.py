@@ -212,7 +212,7 @@ while True:
                                 tastk = text.replace(txt[0] + " ","")
                                 sx = client.getGroupIdsJoined()
                                 for ak in sx:
-                                    client.sendText(receiver, '[ B R O A D C A S T ]\n' + ak)
+                                    client.sendText(ak, '[ B R O A D C A S T ]\n' + tastk)
                             elif text.lower() == 'creator':
                                 client.tag(receiver, "uebcbec2df1e585a2bc487d71de2b26fb")
                                 client.sendMessage(receiver, None, contentMetadata={'mid': "uebcbec2df1e585a2bc487d71de2b26fb"}, contentType=13)
