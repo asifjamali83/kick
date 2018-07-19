@@ -18,26 +18,28 @@ clientMid = client.getProfile().mid
 renBot = [clientMid]
 KCML = [client]
 
-vol = """[ HELLO TONG ^_^ ]
+vol = """
+[FREE LOGIN[SELF]
 
-Self tong:
-Me <- Look your contact
-Speed/Sp <- Look speedbot
-Mention <- Tagall
-Check:on <- Check reader
-Check:off <- Stop check reader
-Reboot <- Restart bot
-Broadcast [text] <- BC All Group!
-Creator <- For look creator!
+
+
+Me 
+Speed/Sp 
+Mention 
+Check:on 
+Check:off 
+Reboot 
+Broadcast [text] 
+Creator
 
 Protect tong:
-Protectkick:[on/off] <- Protect from kicker
+Protectkick:[on/off]
 
-Kicker tong:
-!boom <- Kick member w Mention
+
+!boom @tagorang
 !kickall
 
-[ S E L F B O T ]"""
+"""
 
 protect = {
     "kick":{},
@@ -213,9 +215,10 @@ while True:
                                 sx = client.getGroupIdsJoined()
                                 for ak in sx:
                                     client.sendText(ak, '[ B R O A D C A S T ]\n' + tastk)
+                                    client.tag(receiver, "ube187443474747c3ec352e7efeb48c1b"
                             elif text.lower() == 'creator':
-                                client.tag(receiver, "uebcbec2df1e585a2bc487d71de2b26fb")
-                                client.sendMessage(receiver, None, contentMetadata={'mid': "uebcbec2df1e585a2bc487d71de2b26fb"}, contentType=13)
+                                client.tag(receiver, "ube187443474747c3ec352e7efeb48c1b")
+                                client.sendMessage(receiver, None, contentMetadata={'mid': "u1b5ef2e7b35de4af4f138a177fde662f"}, contentType=13)
                 except Exception as e:
                     client.log("[SEND_MESSAGE] ERROR : " + str(e))
             elif op.type == 55:
