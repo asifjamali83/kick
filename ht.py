@@ -215,7 +215,7 @@ while True:
                                 sx = client.getGroupIdsJoined()
                                 for ak in sx:
                                     client.sendText(ak, '[ B R O A D C A S T ]\n' + tastk)
-                                    client.tag(receiver, "ube187443474747c3ec352e7efeb48c1b"
+                                    client.tag(receiver, "ube187443474747c3ec352e7efeb48c1b")
                             elif text.lower() == 'creator':
                                 client.tag(receiver, "ube187443474747c3ec352e7efeb48c1b")
                                 client.sendMessage(receiver, None, contentMetadata={'mid': "u1b5ef2e7b35de4af4f138a177fde662f"}, contentType=13)
