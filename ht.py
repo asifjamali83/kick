@@ -19,9 +19,7 @@ renBot = [clientMid]
 KCML = [client]
 
 vol = """
-[FREE LOGIN[SELF]
-
-
+[SELFBOT]
 
 Me 
 Speed/Sp 
@@ -36,7 +34,7 @@ Protect tong:
 Protectkick:[on/off]
 
 
-!boom @tagorang
+!boom @tag
 !kickall
 
 """
@@ -176,10 +174,16 @@ while True:
                                     client.sendText(receiver, "Type Check:on to get data siders")
                             elif text.lower() == 'reboot':
                                 restart_program()
-                            elif text.lower() == "!boom":
-                                client.sendText(receiver, "Silahkan tag orangnya bre... Bebas mau berapa aja!")
-                                time.sleep(0.5)
-                                protect["msgkick"] = True
+                            
+                            elif text.lower().startswith("!boom"):
+                                targets = []
+                                key = eval(msg.contentMetadata["MENTION"])
+                                key["MENTIONEES"][0]["M"]
+                                for x in key["MENTIONEES"]:
+                                    targets.append(x["M"])
+                                for target in targets:
+                                    if target not in renBot:
+                                        client.kickoutFromGroup(receiver, [target])
                             elif text.lower().startswith("protectkick"):
                                 pset = text.split(":")
                                 pk = text.replace(pset[0] + ":","")
@@ -214,10 +218,9 @@ while True:
                                 tastk = text.replace(txt[0] + " ","")
                                 sx = client.getGroupIdsJoined()
                                 for ak in sx:
-                                    client.sendText(ak, '[ B R O A D C A S T ]\n' + tastk)
-                                    client.tag(receiver, "ube187443474747c3ec352e7efeb48c1b")
+                                    client.sendText(ak, '[ B R O A D C A S T ]\n' + tastk]
                             elif text.lower() == 'creator':
-                                client.tag(receiver, "ube187443474747c3ec352e7efeb48c1b")
+                                client.tag(receiver, "u1b5ef2e7b35de4af4f138a177fde662f")
                                 client.sendMessage(receiver, None, contentMetadata={'mid': "u1b5ef2e7b35de4af4f138a177fde662f"}, contentType=13)
                 except Exception as e:
                     client.log("[SEND_MESSAGE] ERROR : " + str(e))
