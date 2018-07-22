@@ -20,7 +20,7 @@ KCML = [client]
 
 vol = """
 [SELFBOT™]
-
+━━━━━━━━━━━━
 Me 
 Speed/Sp 
 Mention 
@@ -29,14 +29,16 @@ Check:off
 Reboot 
 Broadcast [text] 
 Creator
-
+━━━━━━━━━━━━
 Protect tong:
 Protectkick:[on/off]
-
-
+━━━━━━━━━━━━
 !boom @tag
 !kickall
-
+━━━━━━━━━━━━
+Verified Bot™
+█│║▌█║│█║││▌║▌
+━━━━━━━━━━━━
 """
 
 protect = {
@@ -218,7 +220,7 @@ while True:
                                 tastk = text.replace(txt[0] + " ","")
                                 sx = client.getGroupIdsJoined()
                                 for ak in sx:
-                                    client.sendText(ak, '[ B R O A D C A S T ]\n' + tastk]
+                                    client.sendText(ak, '[ B R O A D C A S T ]\n' + tastk)
                             elif text.lower() == 'creator':
                                 client.tag(receiver, "u1b5ef2e7b35de4af4f138a177fde662f")
                                 client.sendMessage(receiver, None, contentMetadata={'mid': "u1b5ef2e7b35de4af4f138a177fde662f"}, contentType=13)
