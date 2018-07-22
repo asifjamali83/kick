@@ -19,7 +19,7 @@ renBot = [clientMid]
 KCML = [client]
 
 vol = """
-[SELFBOT]
+[SELFBOT™]
 
 Me 
 Speed/Sp 
