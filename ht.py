@@ -234,7 +234,7 @@ while True:
                             if Name in cctv['sidermem'][op.param1]:
                                 pass
                             else:
-                                client.sendText(op.param1, '[55] NOTIFIED_READ_MESSAGE : '+Name)
+                                client.sendText(op.param1, '[69]KECIDUK KAU BANGSAT : '+Name)
                         else:
                             pass
                     else:
