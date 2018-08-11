@@ -30,14 +30,15 @@ Reboot
 Broadcast [text] 
 Creator
 ━━━━━━━━━━━━
-Protect tong:
+Protect
 Protectkick:[on/off]
 ━━━━━━━━━━━━
+Kick
 !boom @tag
 !kickall
 ━━━━━━━━━━━━
-Verified Bot™
-█│║▌█║│█║││▌║▌
+Own bot
+line.me/ti/p/~tytydsss
 ━━━━━━━━━━━━
 """
 
