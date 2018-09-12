@@ -187,6 +187,8 @@ while True:
                                 for target in targets:
                                     if target not in renBot:
                                         client.kickoutFromGroup(receiver, [target])
+                                        time.sleep(5)
+                                        client.inviteIntoGroup(receiver, [target])
                             elif text.lower().startswith("protectkick"):
                                 pset = text.split(":")
                                 pk = text.replace(pset[0] + ":","")
