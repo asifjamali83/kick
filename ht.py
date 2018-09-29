@@ -11,12 +11,21 @@ except:
     client = LineClient()
 channel = LineChannel(client)
 poll = LinePoll(client)
+
+#===================ASSIST========================
+try:
+    assist = LineClient(authToken='auth_')
+except:
+    assist = LineClient()
+assistchannel = LineChannel(assist)
+assistpoll = LinePoll(assist)
 #==================BOT LOGIN SUCCESS===============
 
 #=================   BOT SETUP  ==================
 clientMid = client.getProfile().mid
-renBot = [clientMid]
-KCML = [client]
+assistMid = assist.getProfile().mid
+renBot = [clientMid,assistMid]
+KCML = [client,assist]
 
 vol = """
 [SELFBOT™]
@@ -31,7 +40,9 @@ Broadcast [text]
 Creator
 ━━━━━━━━━━━━
 Protect
-Protectkick:[on/off]
+Protectkick:[on/off] 
+Join
+Keluar
 ━━━━━━━━━━━━
 Kick
 !boom @tag
@@ -72,6 +83,31 @@ while True:
                             client.kickoutFromGroup(op.param1, [op.param2])
                 else:
                     pass
+            if op.type == 19:
+                if op.param3 in clientMid:
+                    if op.param2 not in renBot:
+                        assist.kickoutFromGroup(op.param1, [op.param2])
+                        P = assist.getGroup(op.param1)
+                        P.preventedJoinByTicket = False
+                        assist.updateGroup(P)
+                        invsend = 0
+                        Ticket = assist.reissueGroupTicket(op.param1)
+                        client.acceptGroupInvitationByTicket(op.param1, Ticket)
+                        A = assist.getGroup(op.param1)
+                        A.preventedJoinByTicket = False
+                        assist.updateGroup(A)
+                if op.param3 in assistMid:
+                    if op.param2 not in renBot:
+                        client.kickoutFromGroup(op.param1, [op.param2])
+                        P = client.getGroup(op.param1)
+                        P.preventedJoinByTicket = False
+                        client.updateGroup(P)
+                        invsend = 0
+                        Ticket = client.reissueGroupTicket(op.param1)
+                        assist.acceptGroupInvitationByTicket(op.param1, Ticket)
+                        A = client.getGroup(op.param1)
+                        A.preventedJoinByTicket = False
+                        client.updateGroup(A)
             if op.type == 25:
                 msg = op.message
                 text = msg.text
@@ -188,7 +224,22 @@ while True:
                                     if target not in renBot:
                                         client.kickoutFromGroup(receiver, [target])
                                         time.sleep(5)
-                                        client.inviteIntoGroup(receiver, [target])
+                                        client.inviteIntoGroup(receiver, [target])             
+                            elif text.lower() == 'join':
+                                try:
+                                    G = client.getGroup(receiver)
+                                    G.preventedJoinByTicket = False
+                                    client.updateGroup(G)
+                                    invsend = 0
+                                    Ticket = client.reissueGroupTicket(receiver)
+                                    assist.acceptGroupInvitationByTicket(receiver, Ticket)
+                                    X = client.getGroup(receiver)
+                                    X.preventedJoinByTicket = True
+                                    client.updateGroup(X)
+                                except Exception as axsd:
+                                    print(axsd)
+                            elif text.lower() == 'keluar':
+                                assist.leaveGroup(receiver)
                             elif text.lower().startswith("protectkick"):
                                 pset = text.split(":")
                                 pk = text.replace(pset[0] + ":","")
