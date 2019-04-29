@@ -36,6 +36,7 @@ Mention
 Check:on 
 Check:off 
 Reboot 
+Reinvite
 Broadcast [text] 
 Creator
 ━━━━━━━━━━━━
@@ -214,6 +215,21 @@ while True:
                             elif text.lower() == 'reboot':
                                 restart_program()
                             
+                            elif text.lower() == 'reinvite':
+                                client.leaveGroup(msg.to)
+                                assist.leaveGroup(msg.to)
+                                G = client.getGroup(msg.to)
+                                ginfo = client.getGroup(msg.to)
+                                G.preventedJoinByTicket = False
+                                client.updateGroup(G)
+                                invsend = 0
+                                Ti = client.reissueGroupTicket(msg.to)
+                                client.acceptGroupInvitationByTicket(to,Ti)
+                                assist.acceptGroupInvitationByTicket(to,Ti)
+                                G = client.getGroup(msg.to)
+                                G.preventedJoinByTicket = True
+                                G.preventedJoinByTicket(G)
+                                client.updateGroup(G)
                             elif text.lower().startswith("!boom"):
                                 targets = []
                                 key = eval(msg.contentMetadata["MENTION"])
